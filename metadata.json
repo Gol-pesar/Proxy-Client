@@ -1,0 +1,6 @@
+{
+  "name": "ProxyGate",
+  "description": "کلاینت حرفه‌ای پروکسی SOCKS5 و HTTP با قابلیت مسیریابی هوشمند برای هر برنامه (Per-App Proxy)",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

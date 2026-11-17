@@ -1,0 +1,82 @@
+<resources>
+    <string name="app_name">ProxyGate</string>
+    <string name="app_tagline">کلاینت پروکسی SOCKS5 و HTTP</string>
+
+    <!-- Navigation -->
+    <string name="nav_dashboard">داشبورد</string>
+    <string name="nav_profiles">سرورها</string>
+    <string name="nav_per_app">برنامه‌ها</string>
+    <string name="nav_logs">گزارش‌ها</string>
+
+    <!-- Connection States -->
+    <string name="status_connected">متصل و ایمن</string>
+    <string name="status_connecting">در حال برقراری تونل…</string>
+    <string name="status_disconnected">غیرفعال</string>
+    <string name="status_disconnecting">در حال قطع اتصال…</string>
+    <string name="status_error">خطا در اتصال</string>
+    <string name="action_connect">شروع اتصال</string>
+    <string name="action_disconnect">قطع اتصال</string>
+    <string name="action_test_proxy">تست پینگ</string>
+    <string name="action_add_profile">افزودن سرور</string>
+    <string name="action_edit">ویرایش</string>
+    <string name="action_delete">حذف</string>
+    <string name="action_save">ذخیره سرور</string>
+    <string name="action_cancel">انصراف</string>
+    <string name="action_import_uri">ورود لینک</string>
+    <string name="action_clear_logs">پاکسازی</string>
+
+    <!-- Dashboard -->
+    <string name="active_server_label">سرور انتخاب‌شده</string>
+    <string name="no_profile_selected">سروری انتخاب نشده است</string>
+    <string name="no_profile_hint">ابتدا یک سرور SOCKS5 یا HTTP اضافه کنید تا ترافیک برنامه‌ها هدایت شود.</string>
+    <string name="traffic_upload">ارسال (TX)</string>
+    <string name="traffic_download">دریافت (RX)</string>
+    <string name="active_connections">نشست‌های فعال</string>
+    <string name="session_duration">مدت اتصال</string>
+    <string name="per_app_summary_title">وضعیت Per-App Proxy</string>
+    <string name="dns_routing_label">مسیریابی DNS</string>
+    <string name="dns_mode_proxy">از طریق پروکسی (TCP)</string>
+    <string name="dns_mode_direct">مستقیم سیستم (Protected)</string>
+
+    <!-- Profiles -->
+    <string name="profile_dialog_add">افزودن سرور جدید</string>
+    <string name="profile_dialog_edit">ویرایش سرور</string>
+    <string name="field_name">نام پروفایل</string>
+    <string name="field_name_hint">مثلاً: سرور آلمان</string>
+    <string name="field_protocol">پروتکل</string>
+    <string name="field_host">آدرس هاست / IP</string>
+    <string name="field_host_hint">192.168.1.10 یا proxy.example.com</string>
+    <string name="field_port">پورت</string>
+    <string name="field_auth_toggle">احراز هویت (نام کاربری و رمز)</string>
+    <string name="field_username">نام کاربری</string>
+    <string name="field_password">رمز عبور</string>
+    <string name="field_udp_relay">پشتیبانی UDP DNS (SOCKS5)</string>
+    <string name="import_uri_title">ورود از لینک پروکسی</string>
+    <string name="import_uri_hint">socks5://user:pass@host:port یا http://host:port</string>
+    <string name="action_import">وارد کردن</string>
+
+    <!-- Per-App Proxy -->
+    <string name="per_app_mode_all">همه برنامه‌ها</string>
+    <string name="per_app_mode_allow">فقط برنامه‌های منتخب</string>
+    <string name="per_app_mode_bypass">به‌جز برنامه‌های منتخب</string>
+    <string name="per_app_mode_all_desc">ترافیک کل دستگاه از پروکسی عبور می‌کند</string>
+    <string name="per_app_mode_allow_desc">تنها برنامه‌های تیک‌خورده از پروکسی استفاده می‌کنند</string>
+    <string name="per_app_mode_bypass_desc">همه برنامه‌ها به‌جز موارد تیک‌خورده از پروکسی رد می‌شوند</string>
+    <string name="search_apps_hint">جستجوی نام برنامه یا پکیج…</string>
+    <string name="show_system_apps">نمایش برنامه‌های سیستمی</string>
+    <string name="select_all">انتخاب همه</string>
+    <string name="deselect_all">لغو همه</string>
+    <string name="selected_count_format">%1$d برنامه انتخاب شده</string>
+    <string name="per_app_reconnect_banner">برای اعمال تغییرات Per-App Proxy، اتصال VPN را مجدداً راه‌اندازی کنید.</string>
+    <string name="empty_allow_list_warning">در حالت «فقط برنامه‌های منتخب» حداقل یک برنامه را انتخاب کنید.</string>
+
+    <!-- Logs & Notification -->
+    <string name="vpn_channel_name">وضعیت تونل ProxyGate</string>
+    <string name="vpn_channel_desc">اعلان دائمی وضعیت اتصال پروکسی SOCKS5/HTTP</string>
+    <string name="vpn_notification_title">ProxyGate فعال است</string>
+    <string name="vpn_notification_stop">قطع اتصال</string>
+    <string name="empty_logs_title">هنوز گزارشی ثبت نشده</string>
+    <string name="empty_logs_desc">پس از شروع اتصال یا تست سرور، رویدادهای تونل در اینجا نمایش داده می‌شوند.</string>
+    <string name="vpn_permission_denied">مجوز ساخت VPN توسط سیستم رد شد.</string>
+    <string name="invalid_profile_error">آدرس سرور یا شماره پورت نامعتبر است.</string>
+</resources>
