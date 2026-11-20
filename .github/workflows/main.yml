@@ -1,0 +1,56 @@
+name: Replace Files from ZIP
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  replace:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Debug - show files
+        run: |
+          echo "=== Current dir ==="
+          pwd
+          ls -la
+          echo "=== ZIP content ==="
+          unzip -l files.zip || { echo "::error::files.zip not found or invalid"; exit 1; }
+
+      - name: Extract, clean, replace
+        run: |
+          set -e
+          mkdir -p /tmp/x
+          unzip -o files.zip -d /tmp/x
+          echo "=== Extracted tree ==="
+          find /tmp/x -maxdepth 2 | head -50
+
+          rm -rf /tmp/x/.github
+          find /tmp/x -type d -name ".github" -exec rm -rf {} + 2>/dev/null || true
+
+          # اگه ZIP یه پوشه ریشه داره، محتویاتشو بیار بالا
+          shopt -s dotglob nullglob
+          if [ "$(ls -A /tmp/x | wc -l)" -eq 1 ] && [ -d /tmp/x/*/ ]; then
+            echo "Single root folder detected, flattening..."
+            mv /tmp/x/*/* /tmp/x/
+            rmdir /tmp/x/*/ || true
+          fi
+
+          find . -maxdepth 1 -not -name '.git' -not -name '.github' -not -name '.' -exec rm -rf {} +
+          cp -r /tmp/x/. ./
+          rm -rf files.zip /tmp/x
+
+          echo "=== Result ==="
+          ls -la
+
+      - name: Commit and push
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git status
+          git diff --staged --quiet && echo "::warning::No changes to commit" || git commit -m "Replace files from ZIP"
+          git push
