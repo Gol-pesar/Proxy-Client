@@ -1,0 +1,31 @@
+name: Replace Files from ZIP
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  replace:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Extract, clean, replace
+        run: |
+          mkdir -p /tmp/x
+          unzip -o files.zip -d /tmp/x
+          rm -rf /tmp/x/.github
+          find /tmp/x -type d -name ".github" -exec rm -rf {} + 2>/dev/null || true
+          find . -maxdepth 1 -not -name '.git' -not -name '.github' -not -name '.' -exec rm -rf {} +
+          cp -r /tmp/x/. ./
+          rm -rf files.zip /tmp/x
+
+      - name: Commit and push
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git diff --staged --quiet || git commit -m "Replace files from ZIP"
+          git push
